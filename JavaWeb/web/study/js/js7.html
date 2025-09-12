@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+       <ul>
+          <li mean='热情'>red</li>
+          <li mean='冷静'>green</li>
+          <li mean='生机'>blue</li>
+       </ul>
+       -->
+    <script type="text/javascript">
+        window.onload = function () {
+            var colors = ['red', 'green', 'blue'];
+            var colorMeans = ['热情', '冷静', '生机'];
+            var ul = document.createElement('ul');
+            for (var i = 0; i < colors.length; i++) {
+                var li = document.createElement('li');
+                li.setAttribute('mean', colorMeans[i]);
+                var textNode = document.createTextNode(colors[i])
+                li.appendChild(textNode);
+                ul.appendChild(li);
+            }
+            document.body.appendChild(ul);
+        }
+    </script>
+</body>
+</html>

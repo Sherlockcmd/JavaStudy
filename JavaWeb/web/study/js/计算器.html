@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img src=""/></td>
+            <td colSpan="3">购物简易计算器</td>
+        </tr>
+        <tr>
+            <td>第一个数</td>
+            <td colSpan="3">
+                <input type="text" id="num1Id"/>
+            </td>
+        </tr>
+        <tr>
+            <td>第二个数</td>
+            <td colSpan="3">
+                <input type="text" id="num2Id"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value=" + " onclick="cal('+')"/>
+            </td>
+            <td>
+                <input type="button" value=" - " onclick="cal('-')"/>
+            </td>
+            <td>
+                <input type="button" value=" * " onclick="mul()"/>
+            </td>
+            <td>
+                <input type="button" value=" / " onclick="div()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>计算结果</td>
+            <td colSpan="3">
+                <input type="text" id="resultId"/>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        function cal(type) {
+            var num1 = document.getElementById('num1Id').value;
+            var num2 = document.getElementById('num2Id').value;
+            // '3+5' '3-5'
+            var result = eval(parseInt(num1) + type + parseInt(num2));
+            var resultObj = document.getElementById('resultId');
+            resultObj.value = result;
+        }
+
+        function cal1(type) {
+            var num1 = document.getElementById('num1Id').value;
+            var num2 = document.getElementById('num2Id').value;
+            var result = 0;
+            switch (type) {
+                case '+':
+                    result = parseInt(num1) + parseInt(num2);
+                    break
+                case '-':
+                    result = parseInt(num1) - parseInt(num2);
+                    break
+                case '*':
+                    result = parseInt(num1) * parseInt(num2);
+                    break
+                case '/':
+                    result = parseInt(num1) / parseInt(num2);
+                    break
+            }
+            var resultObj = document.getElementById('resultId');
+            resultObj.value = result;
+        }
+
+        function add() {
+            var num1 = document.getElementById('num1Id').value;
+            var num2 = document.getElementById('num2Id').value;
+            var result = parseInt(num1) + parseInt(num2);
+            var resultObj = document.getElementById('resultId');
+            resultObj.value = result;
+        }
+
+        function sub() {
+            var num1 = document.getElementById('num1Id').value;
+            var num2 = document.getElementById('num2Id').value;
+            var result = parseInt(num1) - parseInt(num2);
+            var resultObj = document.getElementById('resultId');
+            resultObj.value = result;
+        }
+
+        function mul() {
+            var num1 = document.getElementById('num1Id').value;
+            var num2 = document.getElementById('num2Id').value;
+            var result = parseInt(num1) * parseInt(num2);
+            var resultObj = document.getElementById('resultId');
+            resultObj.value = result;
+        }
+
+        function div() {
+            var num1 = document.getElementById('num1Id').value;
+            var num2 = document.getElementById('num2Id').value;
+            var result = parseInt(num1) / parseInt(num2);
+            var resultObj = document.getElementById('resultId');
+            resultObj.value = result;
+        }
+    </script>
+</body>
+</html>

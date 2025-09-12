@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        function f1(){
+            //$("li").css('background-color','blue');
+            //① :first  找到第一个
+            //li元素同时，还需要是第一个
+            //$("li:first").css('background-color','blue');
+
+            //② :last  找到最后一个
+            //$("li:last").css('background-color','green');
+
+            //③ :eq(下标)  下标从0计算, equal()
+            //$("li:eq(4)").css('background-color','pink');
+
+            //④ :gt(索引值)  下标大于条件索引值, great than
+            //$("li:gt(4)").css('color','red');
+
+            //⑤ :lt(索引值)  下标小于条件索引值, less than
+            //$("li:lt(3)").css('color','orange');
+
+            //⑥ :even  下标索引值等于偶数的
+            //$("li:even").css('background-color','gray');
+            //⑦ :odd  下标索引值等于奇数的
+            //$("li:odd").css('color','red');
+
+            //⑧ :not(选择器)  去除与“选择器”匹配的元素
+            //$("li:not(#zhao,#zhang)").css('color','red');
+
+            //⑨ :header  获得h1/h2/h3...的标题元素
+            $(":header").css('color','blue');
+        }
+        </script>
+    </head>
+    <body>
+		<h2>并且选择器</h2>
+        <h3>并且选择器</h3>
+        <h4>并且选择器</h4>
+        <ul>
+            <li>刘备</li>
+            <li id="zhang">张飞</li>
+            <li>关羽</li>
+            <li id="zhao">赵云</li>
+
+            <li>孙权</li>
+            <li>周瑜</li>
+            <li>黄盖</li>
+            <li>吕蒙</li>
+        </ul>
+
+        <input type="button" value="触发" onclick="f1()" />
+    </body>
+</html>

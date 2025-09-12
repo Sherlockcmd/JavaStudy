@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+        <link href="11.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript">
+        function selAll(){
+            //全选
+            //$('.hby').attr('checked',true);//attr()方法内部有遍历机制，会为每个复选框设置选中
+            $(".hby").prop("checked", true);
+			// field  attribute  property  
+			// checked selected 这些属性操作使用prop
+        }
+        function selNotAll(){
+            //全不选
+            //$('.hby').attr('checked',false);
+            $(".hby").prop("checked", false);
+        }
+        
+        function selFan(){
+            //反选
+            //遍历全部复选框，根据checked的值是true还是false，来进行反选
+            //$(".hby")
+            /*for (var i = 0; i < $('.hby').length; i++) {
+                var flag = $('.hby').eq(i).prop('checked');
+                console.log(flag);
+                $('.hby').eq(i).prop('checked', !flag);
+            }*/
+            /*$($('.hby')).each(function () {
+
+            })*/
+            $.each($('.hby'), function () {
+                //this  dom对象转换为JQuery对象: $(dom对象)
+                $(this).prop('checked', !this.checked);
+                //$(this).prop('checked', !$(this).prop('checked'));
+            });
+        }
+        </script>
+        <style type="text/css">
+        	div{color:red; border:4px solid blue;}
+        </style>
+    </head>
+    <body>
+        <h1>全选、全不选、反选操作</h1>
+        爱好：
+        <input type="checkbox" class="hby" name="hobby" value="1" />篮球&nbsp;
+        <input type="checkbox" class="hby" name="hobby" value="2" />足球&nbsp;
+        <input type="checkbox" class="hby" name="hobby" value="3" />排球&nbsp;
+        <input type="checkbox" class="hby" name="hobby" value="4" />乒乓球&nbsp;
+        
+        <br /><br />
+        <input type="button" value="全选" onclick="selAll()" />
+        <input type="button" value="全不选" onclick="selNotAll()" />
+        <input type="button" value="反选" onclick="selFan()" />
+    </body>
+</html>

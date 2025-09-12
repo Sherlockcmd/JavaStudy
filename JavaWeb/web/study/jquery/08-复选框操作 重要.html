@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript">
+        	 function f1() {
+                 //得到checkbox中所有勾选的checkbox
+                 var array = $('input[name="hobby"]:checked');
+                 console.log(array);
+                 //22,33,44
+                 var str = '';
+                 for (var i = 0; i < array.length; i++) {
+                     console.log(array[i]);//JS DOM对象
+                     //str += array[i].value + ',';
+                     str += array.eq(i).val() + ',';
+                 }
+
+                 //22,33,44,
+                 console.log(str);
+                 //22,33,44
+                 console.log(str.substring(0, str.length - 1));
+        	 }
+			 
+			 function f2() {
+                 var array = $('input[name="hobby"]:checked');
+                 console.log(array);
+                 // '22,33,44'
+                 var str = '';
+                 /*$(array).each(function () {
+                     //这里面有一个隐藏的this代表当前正在遍历的对象:JS DOM
+                     str += this.value + ',';
+                 })*/
+                 $.each(array, function () {
+                     //这里面有一个隐藏的this代表当前正在遍历的对象:JS DOM
+                     str += this.value + ',';
+                 })
+
+				//'22,33,44,'
+				console.log(str);
+				console.log(str.substring(0, str.length - 1));
+			 }
+        	 
+        	 function  f3() {
+				 // attribute filed  property
+        	 	//$(".hby:eq(1)").attr("checked", true);
+        	 	$(".hby:eq(1)").prop("checked", true);
+
+        	 	//设置多个复选框选中
+        	 	$('.hby').val([22, 33]);
+        	 }
+        </script>
+        <style type="text/css">
+        	div{color:red; border:4px solid blue;}
+        </style>
+    </head>
+    <body>
+        <h1>复选框操作</h1>
+
+        爱好：<!-- 22,33,44 -->
+        <input type="checkbox" class="hby"  name="hobby" value="11" />篮球&nbsp;
+        <input type="checkbox" class="hby" name="hobby" value="22" />足球&nbsp;
+        <input type="checkbox" class="hby" name="hobby" value="33" />排球&nbsp;
+        <input type="checkbox" class="hby" name="hobby" value="44" />乒乓球&nbsp;
+        
+        <br /><br />
+        <input type="button" value="获取" onclick="f1()" />
+		<input type="button" value="获取" onclick="f2()" />
+        <input type="button" value="设置" onclick="f3()" />
+    </body>
+</html>

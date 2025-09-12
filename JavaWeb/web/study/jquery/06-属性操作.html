@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        function f1(){
+        	//JS DOM
+        	//var input = document.getElementById("username");
+        	//var typeVaule = input.type;
+        	//console.log(typeVaule);
+			//console.log(input.className);
+        	//var addressValue = input.address;//自定义是拿不到 undefined
+        	//console.log(addressValue);
+        	//var addressValue1 = input.getAttribute('address');
+        	//console.log(addressValue1);
+        	//JQuery
+            //获得属性信息
+			// style="" type="text"  class="apple"  id="username"  name="username" value="tom"
+            //student.getName()   attribute  field property
+            console.log($('#username').attr('type'));
+            console.log($('#username').attr('class'));
+            console.log($('#username').attr('id'));
+            console.log($('#username').attr('name'));
+            console.log($('#username').attr('value'));
+			console.log($('#username').val() );// 简写
+            console.log($('#username').attr('address'));
+        }
+        function f2(){
+            //修改属性
+			// input.value = '';
+            //student.setName("zhangsan");
+			// $('#username').css('color', 'red');
+            $('#username').attr('class','orange');
+            $('#username').attr('name','email');
+            $('#username').attr('value','jim@163.com');
+			$('#username').val('dfhi@gmail.com');
+            $('#username').attr('address','shanghai');
+            $('#username').attr('weight','120');//新属性
+            $('#username').attr('type','radio'); 
+            $('#username').attr('id','email123');
+			
+        }
+
+        function f3(){
+            //删除属性
+            $('#username').removeAttr('class');
+            $('#username').removeAttr('name');
+            $('#username').removeAttr('value');
+            $('#username').removeAttr('address');
+            $('#username').removeAttr('id');
+            $('#username').removeAttr('type');  //禁止删除
+        }
+        </script>
+    </head>
+    <body>
+        <h1>属性操作</h1>
+		
+        <input style="" type="text"  class="apple"  id="username"  name="username" value="tom" address="beijing" />
+        
+        <input type="button" value="获取" onclick="f1()" />
+        <input type="button" value="设置" onclick="f2()" />
+        <input type="button" value="删除属性" onclick="f3()" />
+    </body>
+</html>

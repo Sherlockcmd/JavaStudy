@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="inputId" value="Hello"> <br>
+    <input type="button" value="点我" onclick="clickMe()">
+    <script type="text/javascript">
+        function clickMe() {
+            //var inputObj = document.getElementById('inputId');
+            //console.log(inputObj.value);
+
+            var array = document.getElementsByTagName('input');
+            console.log(array);
+            console.log(array[0]);
+            console.log(array[0].value);
+        }
+    </script>
+</body>
+</html>

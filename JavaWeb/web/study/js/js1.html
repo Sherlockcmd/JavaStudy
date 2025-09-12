@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var num1 = 3;
+        var num2 = 5;
+        var result = num1 + num2;
+        console.log(result);
+        var str = '10';
+        console.log(num1 + str);//310
+        var result2 = num1 + parseInt(str);
+        console.log(result2);//13
+        //alert(result2);
+
+        console.log('---------------')
+        var v;
+        console.log(v);//undefined
+        console.log(typeof(v));//undefined
+        v = 3.14;
+        console.log(v);//3.14
+        console.log(typeof(v));//number
+        v = 'js';
+        console.log(v);//js
+        console.log(typeof(v));//string
+        v = true;
+        console.log(v);//true
+        console.log(typeof(v));//boolean
+        v = null;
+        console.log(v);//null
+        console.log(typeof(v));//object
+
+        console.log('----------------');
+        var m = '3';
+        var n = 3;
+        if (m == n) {//值相等就可以
+            console.log('m==n')
+        }
+        if (m === n) {//值相等，类型也要相等
+            console.log('m===n')
+        }
+        console.log('-------------');
+        var str1 = 'Hello JS and Java';
+        console.log(str1.indexOf('J'));//6
+        console.log(str1.indexOf('JS'));//6
+        console.log(str1.indexOf('JS', 9));//-1
+        var str2 = 'how are you doing today';
+        var array = str2.split(' ');
+        console.log(array);
+        console.log(array[0]);
+        console.log('1:2:3:4'.split(':'));
+
+        console.log('-----------------')
+        if (true) {
+            console.log('true');
+        }
+        if (0) {//false
+            console.log('0');
+        }
+        if (!0) {//true
+            console.log('!0');
+        }
+        if ('') {//false
+            console.log('空字符串');
+        }
+        if ('abc') {//true
+            console.log('abc');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+    <span id="spanId">Hello Span</span><br/>
+    <button onclick="clickMe()">点击</button>
+
+    <script type="text/javascript">
+        function clickMe() {
+            var spanObj = document.getElementById('spanId');
+            //spanObj.innerText = '<h1 style="color: red;">innerText</h1>';
+            spanObj.innerHTML = '<h1 style="color: red;">innerText</h1>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        function f1(){
+			// domObj.innerHtml;
+            //获取-(普通文本 和 html标签 都可以获得)
+            //console.log($('div').html());//this is <p>jquery <span>subject</span></p>
+            //获取-只是针对文本内容其作用(过滤html标签)
+            console.log($('div').text());//this is jquery subject
+        }
+        function f2(){
+            //设置-(普通文本 和 html标签 都可以获得,html标签也可以被浏览器正常解析)
+			// domObj.innerHtml = "fdf";
+			// css()、attr()、html()
+            //$('div').html("欢迎访问 <a href='http:www.baidu.com'>百度</a>");
+            //设置-主要针对文本内容，如果有html标签，<>符号变为符号实体
+            $('div').text("欢迎访问 <a href='http:www.baidu.com'>百度</a>");
+        }
+        </script>
+    </head>
+    <body>
+        
+        <div>this is <p>jquery <span>subject</span></p></div>
+
+        <input type="button" value="获取" onclick="f1()" />
+        <input type="button" value="设置" onclick="f2()" />
+    </body>
+</html>

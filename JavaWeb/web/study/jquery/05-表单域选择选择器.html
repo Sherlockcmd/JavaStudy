@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        function f1(){
+            //获得复选框选中情况
+            //$(:checked)  //过滤出被选中的复选框、单选按钮
+			//console.log($("input:lt(4)"));
+            //console.log($("input:lt(4):checked"));
+
+            //每个过滤选择器使用之前，已经获得的元素节点的下标进行归位(从0开始重新计算)
+			console.log($("input:gt(3):lt(3)")); //男 女 保密
+            //console.log($("input:gt(3):lt(3):checked")); //男 女 保密
+            //console.log($("input:gt(1):lt(3)")); //足球 乒乓球  男
+            //console.log($("input:even:gt(1)")); //男  保密
+
+           //JQuery封装的对象，是一个数组结构
+		   /*var items = $("input:gt(3):lt(3)");
+		   for (var i = 0; i < items.length; i++) {
+				console.log(items[i]);//通过下标拿到的是 JS DOM
+				console.log(items[i].value);
+			}*/
+
+            //$(:selected) 获得下拉列表的选中情况
+           console.log($("option:selected"));
+        }
+        </script>
+    </head>
+    <body>
+        <h1>表单域选中选择器</h1>
+       <!-- 爱好： checked="true" -->
+        <input type="checkbox" checked="true" name="hobby[]" value="篮球" />篮球&nbsp;&nbsp;
+        <input type="checkbox" name="hobby[]" value="排球" />排球&nbsp;&nbsp;
+        <input type="checkbox" name="hobby[]" value="足球" />足球&nbsp;&nbsp;
+        <input type="checkbox" name="hobby[]" value="乒乓球" />乒乓球&nbsp;&nbsp;
+        <br /><br />
+        性别:
+        <input type="radio" name="sex" value="男" />男&nbsp;&nbsp;
+        <input type="radio" name="sex" value="女" />女&nbsp;&nbsp;
+        <input type="radio" name="sex" value="保密" />保密&nbsp;&nbsp;
+        学历:
+        <select>
+            <option value="0">请选择</option>
+            <option value="1">小学</option>
+            <option selected="selected" value="2">中学</option>
+            <option value="3">大学</option>
+        </select>
+        <br /><br />
+        <input type="button" value="触发" onclick="f1()" />
+    </body>
+</html>

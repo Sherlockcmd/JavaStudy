@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// window.onload = function() {}
+			/*$(function () {
+
+			})*/
+			$(function() {
+				/*$('button').on('click', function () {
+
+				})*/
+				$("button").on("click", function() {
+					//$.each('#myTable tr', function() {})
+
+					$('#myTable tr:gt(0)').each(function() {
+						// this代表正在遍历的每一个tr对象
+						// 将this这个dom对象转换为jquery对象
+						var trJQueryObj = $(this);
+						// self代表tr对象， find返回满足条件的孩子
+						// text() innerText   split
+						var column1 = trJQueryObj.find("td:eq(0)").text().trim();
+						var column2 = trJQueryObj.find("td:eq(1)").text().trim();
+						var column3 = trJQueryObj.find("td:eq(2)").text().trim();
+						var column4 = trJQueryObj.find("td:eq(3)").text().trim();
+						var result = column1 + '  ' + column2 + '  ' + column3 + '  ' + column4 + '  ';
+						console.log(result);
+					});
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<table id="myTable" style="margin-left:50px;">
+		  <tr><th>Sr no</th><th>Name</th><th>Gender</th><th>Location</th></tr>
+		  <tr><td> 1</td><td>Satinder Singh</td><td> M </td><td> India </td></tr>
+		  <tr><td> 2 </td><td>Amit Sarna</td><td> M </td><td> France </td></tr>
+		  <tr><td> 3 </td><td>Andrea Ely</td><td> F </td><td> Brazil </td></tr>
+		  <tr><td> 4 </td><td>Leslie Mac </td><td> F </td><td> Australia </td></tr>
+		  <tr><td> 5 </td><td>Sonya David </td><td> F </td><td>America</td></tr>
+		</table>
+
+		<table>
+			<tr></tr>
+		</table>
+		
+		<button>点击</button>
+	</body>
+</html>

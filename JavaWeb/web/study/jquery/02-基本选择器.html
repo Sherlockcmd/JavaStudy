@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+		<script src="jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        function f1(){
+            //① $('#id属性值')
+            //style="color: red;width: 200px;background-color:red;"
+            //var inputObj = document.getElementById("username");
+            //inputObj.style.color = "red";
+            //inputObj.style.width = "400px";
+
+            // css这个方法是jQuery中专门操作样式使用的
+            //var value = $('#username').css('color');// get方法
+            //console.log(value);
+            //$('#username').css('color', 'red');// set方法
+            //$('#username').css('width', '500px');
+
+
+            //② $('tag标签名称')tag标签选择器
+            // domObj.style.backgroundColor = 'blue'
+            //$('input').css('background-color','blue');
+
+            //③ $('.class属性值') class类别选择器
+            //$('.apple').css('background-color','green');
+
+            //④ $('*') 通配符选择器
+            //$('*').css('background-color','gray');
+
+            //⑤ $('s1,s2,s3...')联合选择器selector
+            $('p,#username,.apple').css('font-size','25px');
+        }
+        </script>
+
+        <style type="text/css">
+            #username{}
+            p{}
+            .apple{}
+            *{}
+            .apple,span,input{} /*并集选择器*/
+        </style>
+    </head>
+    <body>
+        <h2>基本选择器(灵感来源于css样式选择器)</h2>
+		
+        <input style="color: blue;" type="text" id="username"  name="username" value="xiaoqiang" /><br />
+        <p>Today is Sunday</p>
+        <div class="apple">We are studying jquery</div>
+        <span class="apple">this is beijing</span><br />
+
+        <input type="button" value="触发" onclick="f1()" />
+    </body>
+</html>

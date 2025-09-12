@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var array1 = new Array(7);
+        console.log(array1.length);
+        var array2 = new Array(100, 'abc',true);
+        console.log(array2);
+        //构造一个空数组
+        var array = new Array();
+        array[0] = '123';
+        console.log(array);//['123']
+        console.log(array.length);//1
+        array[1] = false;
+        console.log(array);//['123', false]
+        console.log(array.length);//2
+
+        var arr = new Array();
+        arr.push('zhangsan');
+        console.log(arr);//['zhangsan']
+        console.log(arr.length);//1
+        arr.push(false);
+        console.log(arr);//['zhangsan', false]
+        console.log(arr.length);//2
+        arr.push(45);
+        console.log(arr);//['zhangsan', false, 45]
+        console.log(arr.length);//3
+        console.log(arr.pop());//45
+        console.log(arr.pop());//false
+        console.log(arr.pop());//zhangsan
+    </script>
+</head>
+<body>
+
+</body>
+</html>

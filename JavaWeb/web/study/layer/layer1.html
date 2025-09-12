@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+    <!-- 请勿在项目正式环境中引用该 layui.css 地址 -->
+    <link href="./layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-btn-container">
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="open0">Open0</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="open1">Open1</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="open2">Open2</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="open3">Open3</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="open4" id="test4">Open4</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="alert">Alert</button>
+    <button type="button" class="layui-btn layui-btn-danger" lay-on="confirm">Confirm</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="msg">Msg</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="load">Load</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="tips">Tips</button>
+    <button type="button" class="layui-btn layui-btn-primary" lay-on="photots">Photots</button>
+</div>
+<div id="divId" style="display: none">
+    姓名：<input type="text"><br>
+    年龄：<input type="text">
+</div>
+
+<!-- 请勿在项目正式环境中引用该 layui.js 地址 -->
+<script src="./jquery-2.1.4.js"></script>
+<script src="./layui/layui.js"></script>
+<script>
+    //页面加载完成
+    /*layui.use(function () {
+
+    })*/
+
+    layui.use(function () {
+        var layer = layui.layer;
+        var util = layui.util;
+        // 批量事件
+        /*util.on('lay-on', {
+            open0: function () {
+
+            }
+        });*/
+        util.on('lay-on', {
+            open0: function () {
+                /*layer.open({
+                    type: 0,
+                    content: '确认要删除么？'
+                });*/
+
+                var index = layer.open({
+                    type: 0,
+                    content: '您确认要删除么？',
+                    btn: ['确认', '取消'],
+                    yes: function (index) {
+                        console.log('点击了第一个按钮');
+                        layer.close(index);
+                    },
+                    btn2: function () {
+                        console.log('点击了第二个按钮');
+                        return true;
+                    }
+                })
+            },
+            open1: function () {
+                layer.open({
+                    type: 1,
+                    area: ['200px', '100px'],
+                    content: $('#divId')
+                });
+            },
+            open2: function () {
+                layer.open({
+                    type: 2,
+                    content: 'form.html',
+                    area: ['800px', '600px']
+                });
+            },
+            open3: function () {
+                layer.open({
+                    type: 3
+                });
+            },
+            open4: function () {
+                layer.open({
+                    type: 4,
+                    content: ['正在学习layer', '#test4']
+                });
+            },
+            alert: function () {
+                //layer.alert('对话框内容');
+                layer.open({
+                    type: 0,
+                    content: '对话框内容'
+                });
+            },
+            confirm: function () {
+                layer.confirm(
+                    '一个询问框的示例？',
+                    {btn: ['确定', '关闭']},//按钮
+                    function () {
+                        layer.msg('第一个回调', {icon: 1});
+                    },
+                    function () {
+                        layer.msg('第二个回调', {
+                            time: 2000, // 20s 后自动关闭
+                            btn: ['明白了', '知道了']
+                        });
+                    }
+                );
+            },
+            msg: function () {
+                layer.msg('一段提示信息', {icon: 1});
+            },
+            load: function () {
+                var index = layer.load(0, {shade: false});
+                setTimeout(function () {
+                    layer.close(index); // 关闭 loading
+                }, 5000);
+            },
+            tips: function () {
+                layer.tips('一个 tips 层', this, {
+                    tips: 1
+                });
+            },
+            //了解
+            photots: function () {
+                layer.photos({
+                    photos: {
+                        "title": "Photos Demo",
+                        "start": 0,
+                        "data": [
+                            {
+                                "alt": "layer",
+                                "pid": 1,
+                                "src": "https://unpkg.com/outeres@0.1.1/demo/layer.png",
+                            },
+                            {
+                                "alt": "壁纸",
+                                "pid": 3,
+                                "src": "https://unpkg.com/outeres@0.1.1/demo/000.jpg",
+                            },
+                            {
+                                "alt": "浩瀚宇宙",
+                                "pid": 5,
+                                "src": "https://unpkg.com/outeres@0.1.1/demo/outer-space.jpg",
+                            }
+                        ]
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
