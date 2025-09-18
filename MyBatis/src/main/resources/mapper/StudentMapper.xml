@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="student">
+
+    <resultMap id="studentMap" type="Student">
+        <id column="id" property="id"/>
+        <result column="student_name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <result column="banji_id" property="banjiId"/>
+
+    </resultMap>
+
+
+<!--sql片段-->
+    <sql id="studentColumns">
+        id,name,age,gender,banji_id
+    </sql>
+
+
+
+<!--通过id查找学生-->
+    <select id="selectById" parameterType="Integer" resultType="Student">
+        select <include refid="studentColumns"/>  from student where id=#{id}
+    </select>
+
+    <select id="selectAll" resultType="Student">
+        select <include refid="studentColumns"/> from student
+    </select>
+
+    <delete id="deleteById" parameterType="Integer">
+        delete from student where id=#{id}
+    </delete>
+
+    <insert id="add" parameterType="Student">
+    insert into student(name,age,gender,banji_id)
+    values (#{name},#{age},#{gender},#{banjiId})
+    </insert>
+    <update id="update" parameterType="Student">
+        update student
+        set name=#{name},age=#{age},gender=#{gender},banji_id=#{banjiId}
+        where id=#{id}
+    </update>
+
+    <select id="selectByPage" parameterType="Map" resultType="Student">
+        select <include refid="studentColumns"/>
+        from student
+        limit #{offset},#{pageSize}
+    </select>
+
+
+	
+</mapper>
+  

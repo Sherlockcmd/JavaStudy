@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<!-- 下划线字段对应实体类驼峰命名 数据库表：banji_id 映射到类里面：banjiId -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+
+	<typeAliases>
+
+<!--        <typeAlias alias="Student" type="com.easy.mybatis.pojo.Student"/>-->
+<!--        <typeAlias alias="Banji" type="com.easy.mybatis.pojo.Banji"/>-->
+		<!-- 扫描包里面的类，批量起别名，别名即类名，不区分大小写 -->
+		<package name="com.easy.mybatis.pojo"/>
+	</typeAliases>
+
+
+	<environments default="development">
+		<environment id="development">
+			<!-- 使用JDBC的事物管理 -->
+			<transactionManager type="JDBC"/>
+			<!-- 配饰数据库连接池 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://182.92.125.34:3306/czhczh?characterEncoding=UTF-8"/>
+				<property name="username" value="czhczh"/>
+				<property name="password" value="617620"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	
+	<!-- 加载映射文件 -->
+	<mappers>
+		<mapper resource="mapper/StudentMapper.xml"/>
+	</mappers>
+</configuration>

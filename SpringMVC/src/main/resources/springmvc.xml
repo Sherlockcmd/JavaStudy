@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 扫描@Controller 是要扫描注解的包-->
+	<context:component-scan base-package="com.easy.mvc.controller"/>
+
+	<!-- 注解驱动 -->
+	<mvc:annotation-driven/>
+
+	<!-- 视图解析器
+1、如果Controller中书写的是视图的逻辑名，这个视图解析器必须要配置。
+前缀+视图逻辑名+后缀=真实路径
+/ + student_add + .jsp
+2、如果视图解析器书写的是视图的真实路径，那么这个视图解析器可以不配置
+ -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 路径前缀 -->
+		<property name="prefix" value="/"/>
+		<!-- 路径后缀 -->
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.easy.mvc.interceptor.MyInterceptor1"/>
+		</mvc:interceptor>
+
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.easy.mvc.interceptor.MyInterceptor2"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+</beans>
